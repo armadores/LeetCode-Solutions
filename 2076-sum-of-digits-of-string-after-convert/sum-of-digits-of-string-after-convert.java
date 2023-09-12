@@ -1,22 +1,32 @@
 class Solution {
     public int getLucky(String s, int k) {
-        int num = 0;
-        // Convert characters to integers and sum them
-        for (char c : s.toCharArray()) {
-            int value = c - 'a' + 1;
-            while (value > 0) {
-                num += value % 10;
-                value /= 10;
-            }
+        // Create a map to store sorting values for each character in the alphabet
+        Map<Character, Integer> sortingValues = new HashMap<>();
+        int num=0, e=0;
+        String q="";
+        // Assign sorting values from 1 to 26 based on character position
+        for (char ch = 'a'; ch <= 'z'; ch++) {
+            sortingValues.put(ch, ch - 'a' + 1);
         }
-        // Sum the digits k-1 times
+        //traverse the character of string and get the value from hashmap then translate the value 
+        //from integer to string for to concatenate them.
+        for(int i=0;i<s.length();i++){
+            char b=s.charAt(i);
+            int c=sortingValues.get(b);
+            q=q+Integer.toString(c);
+        }
+        //Convert the chars of string to integer and sum these values.
+        for(int j=0;j<q.length();j++){
+            num=num+(q.charAt(j)-'0');
+        }
+        //sum the digits k-1 times. Because we sum the digits in the former loop
         for (int i = 1; i < k; i++) {
             int sum = 0;
             while (num > 0) {
                 sum += num % 10;
                 num /= 10;
             }
-            num = sum; // Update the sum of digits
+            num=sum;//update the sum num of digits
         }
         return num;
     }
