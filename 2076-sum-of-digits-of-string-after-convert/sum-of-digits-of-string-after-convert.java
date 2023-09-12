@@ -1,6 +1,6 @@
 class Solution {
     public int getLucky(String s, int k) {
-         // Create a map to store sorting values for each character in the alphabet
+        // Create a map to store sorting values for each character in the alphabet
         Map<Character, Integer> sortingValues = new HashMap<>();
         
         // Assign sorting values from 1 to 26 based on character position
