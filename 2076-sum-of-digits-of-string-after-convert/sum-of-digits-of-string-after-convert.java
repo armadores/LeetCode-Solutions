@@ -19,15 +19,14 @@ class Solution {
         for(int j=0;j<q.length();j++){
             num=num+(q.charAt(j)-'0');
         }
-        System.out.println(num);
-       
+        //sum the digits k-1 times. Because we sum the digits in the former loop
         for (int i = 1; i < k; i++) {
             int sum = 0;
             while (num > 0) {
                 sum += num % 10;
                 num /= 10;
             }
-            num=sum;
+            num=sum;//update the sum num of digits
         }
         return num;
     }
