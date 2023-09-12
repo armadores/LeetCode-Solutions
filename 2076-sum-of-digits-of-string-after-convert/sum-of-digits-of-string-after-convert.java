@@ -1,7 +1,6 @@
 class Solution {
     public int getLucky(String s, int k) {
         int num = 0;
-
         // Convert characters to integers and sum them
         for (char c : s.toCharArray()) {
             int value = c - 'a' + 1;
@@ -10,7 +9,6 @@ class Solution {
                 value /= 10;
             }
         }
-
         // Sum the digits k-1 times
         for (int i = 1; i < k; i++) {
             int sum = 0;
@@ -20,7 +18,6 @@ class Solution {
             }
             num = sum; // Update the sum of digits
         }
-
         return num;
     }
 }
