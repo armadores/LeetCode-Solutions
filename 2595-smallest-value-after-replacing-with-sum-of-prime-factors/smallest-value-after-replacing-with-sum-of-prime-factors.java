@@ -1,6 +1,6 @@
 class Solution {
     public int smallestValue(int n) {
-         int i=2, sum=0, c=0;
+         int i=2, sum=0;
          while(n>1){
                 if(n%i==0){
                     n=n/i;
