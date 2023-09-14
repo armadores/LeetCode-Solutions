@@ -1,0 +1,29 @@
+class Solution {
+    public int smallestValue(int n) {
+         int i=2, sum=0, c=0;
+         while(n>1){
+                if(n%i==0){
+                    n=n/i;
+                    sum+=i;
+                }else{
+                    i++;
+                } 
+            }
+        if(isPrime(sum)==true){
+            return sum;
+        } 
+        return smallestValue(sum);
+     }   
+    public boolean isPrime(int k){
+        if(k<2){
+            return false;
+        }   
+        for (int p = 2; p < k/2; p++) {
+                if (k % p == 0) {
+                return false;
+            }
+        } 
+        return true;
+    }
+
+}
